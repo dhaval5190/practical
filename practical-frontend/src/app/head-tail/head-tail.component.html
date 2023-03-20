@@ -1,0 +1,30 @@
+<div>
+    <div class="cus-padding">
+        <div class="select">
+            <select id="format" #mySelect (change)="saveChanges(mySelect.value)" [(ngModel)]="dropDownValue">
+                <option value="select value">select value</option>
+                <option value="H">H</option>
+                <option value="T">T</option>
+            </select>
+        </div>
+        <div>
+            <button (click)="onAddValue()" class="button button-solid background-green">Submit</button>
+            <button (click)="onClear()" class="button button-solid background-red">Clear</button>
+        </div>
+
+        <div>
+            <table *ngIf="mapping.length>0" border="1">
+                <ng-container *ngFor="let cols of mapping;let i=index">
+                    <td>
+                        <tr>
+                            <h5 class="rows">Column {{i+1}}</h5>
+                        </tr>
+                        <tr *ngFor="let col of cols;let j=index">
+                            <p>{{col}}</p>
+                        </tr>
+                    </td>
+                </ng-container>
+            </table>
+        </div>
+    </div>
+</div>
